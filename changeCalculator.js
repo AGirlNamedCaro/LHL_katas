@@ -21,10 +21,59 @@
     * from the change
     * identify what's left and follow the same pattern
     */
+
+    let change = (cash - billTotal) / 100
+    console.log(change)
+    const object = {}
+    let count1 = 0;
+    let count2 = 0;
+    let count5 = 0;
+
+    if(change.toString().length < 5) {
+      //Checking whether its under 9$
+      for(const num of change.toString()) {
+       if(change.toString()[0] > 0) {
+
+         switch(num) {
+ 
+           case '1':
+             count1++
+             object['oneDollar'] = count1
+             break;
+           case '2':
+             count2++
+             object['twoDollar'] = count2
+             break;
+         }
+         if(num === '.') {
+           console.log('decimal point')
+         }
+         else {
+           change = change - parseFloat(num)
+           console.log('currentChange: ', change.toFixed(2), 'num: ', num)
+         }
+       }
+       else {
+         if(change.toString()[3] > 0) {
+           console.log(change)
+         }
+
+       }
+        
+        
+      }
+      
+    }
+    else {
+
+    }
+
+    // console.log(object)
+    
  
  }
 
  
 
  console.log(calculateChange(1787, 2000));
- console.log(calculateChange(2623, 4000));
+//  console.log(calculateChange(2623, 4000));
